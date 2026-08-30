@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result - House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 House Price Prediction</h1>
+
+        <div class="result-box">
+            <h2>Estimated House Price</h2>
+            <div class="price">₹ {{ predicted_price }}</div>
+            <p>Based on the details you provided</p>
+        </div>
+
+        <table class="summary-table">
+            <tr><td>Area</td><td>{{ inputs.Area | int }} sq.ft</td></tr>
+            <tr><td>Bedrooms</td><td>{{ inputs.Bedrooms | int }}</td></tr>
+            <tr><td>Bathrooms</td><td>{{ inputs.Bathrooms | int }}</td></tr>
+            <tr><td>Floors</td><td>{{ inputs.Floors | int }}</td></tr>
+            <tr><td>Age</td><td>{{ inputs.Age | int }} years</td></tr>
+            <tr><td>Parking</td><td>{{ inputs.Parking | int }}</td></tr>
+        </table>
+
+        <a href="{{ url_for('predict') }}" class="back-link">&larr; Predict another house</a>
+
+        <footer>Built with Flask &amp; Scikit-learn | College ML Assignment</footer>
+    </div>
+</body>
+</html>
